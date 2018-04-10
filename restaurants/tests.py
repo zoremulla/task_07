@@ -57,6 +57,19 @@ class RestaurantViewTestCase(TestCase):
         response2 = self.client.post(create_url, self.data)
         self.assertEqual(response2.status_code, 302)
 
+    def test_update_view(self):
+        update_url = reverse("restaurant-update", kwargs={"restaurant_id":self.restaurant_1.id})
+        response = self.client.get(update_url)
+        self.assertEqual(response.status_code, 200)
+
+        response = self.client.post(update_url, data=self.data)
+        self.assertEqual(response.status_code, 302)
+
+    def test_delete_view(self):
+        delete_url = reverse("restaurant-delete", kwargs={"restaurant_id":self.restaurant_1.id})
+        response = self.client.get(delete_url)
+        self.assertEqual(response.status_code, 302)
+
 
 class RestaurantFormTestCase(TestCase):
     def test_valid_form(self):
