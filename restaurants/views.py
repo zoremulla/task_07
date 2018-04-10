@@ -29,3 +29,12 @@ def restaurant_create(request):
         "form":form,
     }
     return render(request, 'create.html', context)
+
+def restaurant_update(request, restaurant_id):
+
+    return
+
+def restaurant_delete(request, restaurant_id):
+
+
+    return
